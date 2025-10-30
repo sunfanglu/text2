@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我的主页</title>
+    <meta name="description" content="一个简洁的个人主页（纯前端）" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="主页">👋 我的主页</a>
+        <nav class="nav" aria-label="主导航">
+          <a href="#about">关于我</a>
+          <a href="#projects">项目</a>
+          <a href="#contact">联系</a>
+          <button id="themeToggle" class="btn" aria-label="切换主题">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <h1 id="hero-title">你好，我是 Fanglu</h1>
+          <p class="subtitle">专注信息检索与 AI 应用，热爱教学与研究。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">查看项目</a>
+            <a class="btn" href="#contact">联系我</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section container" aria-labelledby="about-title">
+        <h2 id="about-title">关于我</h2>
+        <p>
+          我是一名从事信息检索、教学与工具化方法研究的从业者，专注把复杂的问题拆解为可复用的方法与工具，帮助学习者与团队更高效地达成目标。
+        </p>
+        <ul class="stats">
+          <li><span class="num">8+</span><span class="label">年经验</span></li>
+          <li><span class="num">30+</span><span class="label">项目</span></li>
+          <li><span class="num">1000+</span><span class="label">学习者</span></li>
+        </ul>
+      </section>
+
+      <section id="projects" class="section container" aria-labelledby="projects-title">
+        <h2 id="projects-title">项目</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>智能检索助手</h3>
+            <p>将检索流程模块化，支持快速构建主题知识库与可复用检索策略。</p>
+            <a class="btn inline" href="#contact">了解更多 →</a>
+          </article>
+          <article class="card">
+            <h3>教学内容编排工具</h3>
+            <p>面向教师的内容编排与评测工具，减少重复劳动、提升产出质量。</p>
+            <a class="btn inline" href="#contact">了解更多 →</a>
+          </article>
+          <article class="card">
+            <h3>方法与工具知识库</h3>
+            <p>沉淀可复用的方法论与工具清单，辅助个人与团队快速上手。</p>
+            <a class="btn inline" href="#contact">了解更多 →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section container" aria-labelledby="contact-title">
+        <h2 id="contact-title">联系我</h2>
+        <form id="contactForm" class="contact-form" aria-label="联系表单">
+          <div class="field">
+            <label for="name">姓名</label>
+            <input id="name" name="name" type="text" placeholder="请输入姓名" required />
+          </div>
+          <div class="field">
+            <label for="email">邮箱</label>
+            <input id="email" name="email" type="email" placeholder="example@mail.com" required />
+          </div>
+          <div class="field">
+            <label for="message">留言</label>
+            <textarea id="message" name="message" rows="4" placeholder="想与我合作或交流什么？" required></textarea>
+          </div>
+          <button type="submit" class="btn primary" aria-label="发送留言">发送</button>
+          <p id="formStatus" role="status" class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">⬆️</button>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Fanglu Sun. 保留所有权利。</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
+

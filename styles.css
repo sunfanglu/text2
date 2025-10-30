@@ -1,0 +1,109 @@
+/* 基础设计变量 */
+:root {
+  --bg: #ffffff;
+  --fg: #0f172a;
+  --muted: #475569;
+  --brand: #4f46e5;
+  --brand-hover: #4338ca;
+  --card: #f8fafc;
+  --ring: rgba(79, 70, 229, 0.35);
+  --border: #e2e8f0;
+}
+
+/* 深色主题 */
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --fg: #e2e8f0;
+  --muted: #94a3b8;
+  --brand: #8b5cf6;
+  --brand-hover: #7c3aed;
+  --card: #0f172a;
+  --ring: rgba(139, 92, 246, 0.35);
+  --border: #1f2937;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+.container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+/* 头部导航 */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: saturate(150%) blur(6px);
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { text-decoration: none; color: var(--fg); font-weight: 800; letter-spacing: 0.2px; }
+.nav { display: flex; align-items: center; gap: 14px; }
+.nav a { text-decoration: none; color: var(--fg); opacity: 0.9; }
+.nav a:hover { opacity: 1; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 36px; padding: 0 12px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card); color: var(--fg);
+  cursor: pointer; text-decoration: none; transition: all .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.btn.primary:hover { background: var(--brand-hover); border-color: var(--brand-hover); }
+.btn.inline { height: 32px; padding: 0 10px; font-size: 14px; }
+
+/* 首屏 */
+.hero { padding: 80px 20px 40px; display: grid; align-items: center; min-height: 50vh; }
+.hero-content h1 { font-size: 40px; line-height: 1.15; margin: 0 0 10px; }
+.subtitle { color: var(--muted); margin: 0 0 18px; }
+.hero-actions { display: flex; gap: 12px; }
+
+/* 内容区块 */
+.section { padding: 56px 20px; }
+.section h2 { font-size: 28px; margin: 0 0 16px; }
+
+.stats { list-style: none; padding: 0; margin: 18px 0 0; display: flex; gap: 28px; }
+.stats .num { display: block; font-weight: 800; font-size: 24px; }
+.stats .label { color: var(--muted); font-size: 14px; }
+
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.card { grid-column: span 12; border: 1px solid var(--border); background: var(--card); border-radius: 14px; padding: 18px; }
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.card p { margin: 0 0 12px; color: var(--muted); }
+
+/* 表单 */
+.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-form .field { display: flex; flex-direction: column; gap: 6px; grid-column: span 2; }
+.contact-form label { font-weight: 600; }
+.contact-form input, .contact-form textarea {
+  border: 1px solid var(--border); background: var(--bg); color: var(--fg);
+  border-radius: 10px; padding: 10px 12px; outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { box-shadow: 0 0 0 4px var(--ring); border-color: var(--brand); }
+.form-status { margin-top: 8px; min-height: 20px; font-size: 14px; color: var(--muted); }
+
+/* 返回顶部 */
+.back-to-top {
+  position: fixed; right: 18px; bottom: 18px; z-index: 20; opacity: 0; pointer-events: none;
+  transform: translateY(6px); transition: all .2s ease; border-radius: 50%; width: 44px; height: 44px;
+  border: 1px solid var(--border); background: var(--card); color: var(--fg);
+}
+.back-to-top.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+/* 页脚 */
+.site-footer { border-top: 1px solid var(--border); padding: 20px 0; color: var(--muted); }
+
+/* 响应式 */
+@media (min-width: 720px) {
+  .hero { padding: 100px 20px 60px; }
+  .hero-content h1 { font-size: 54px; }
+  .grid .card { grid-column: span 4; }
+}
+
+
